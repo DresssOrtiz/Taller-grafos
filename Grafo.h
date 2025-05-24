@@ -17,11 +17,6 @@ struct Punto {
     }
 };
 
-// Alias para simplificar tipos de rutas
-typedef vector<unsigned long> TRuta;
-typedef vector<TRuta> TCaminos;
-typedef vector<float> TDist;
-
 class Grafo {
 private:
     vector<Punto> vertices;
@@ -37,9 +32,8 @@ public:
     float obtenerCosto(int origen, int destino) const;
     int numeroVertices() const;
 
-    TCaminos algoritmoPrim(int origen) const;
-    TCaminos algoritmoDijkstra(int origen) const;
+    vector< vector<unsigned long> > algoritmoPrim(int origen) const;
+    vector< vector<unsigned long> > algoritmoDijkstra(int origen) const;
 };
 
 #endif
-
