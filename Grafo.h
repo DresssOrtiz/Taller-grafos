@@ -6,6 +6,8 @@
 
 using namespace std;
 
+struct Punto;
+
 class Grafo {
 private:
     vector<Punto> vertices;
