@@ -6,7 +6,17 @@
 
 using namespace std;
 
-struct Punto;
+struct Punto {
+    float X, Y;
+    float distanciaA(const Punto& b) const {
+        float x = X - b.X;
+        float y = Y - b.Y;
+        return std::sqrt((x * x) + (y * y));
+    }
+};
+
+typedef vector<unsigned long> TRuta;
+typedef vector<TRuta> TCaminos;
 
 class Grafo {
 private:
@@ -23,8 +33,11 @@ public:
     float obtenerCosto(int origen, int destino) const;
     int numeroVertices() const;
 
-    vector< vector<unsigned long> > algoritmoPrim(int origen) const;
-    vector< vector<unsigned long> > algoritmoDijkstra(int origen) const;
+    TCaminos algoritmoPrim(int origen) const;
+    TCaminos algoritmoDijkstra(int origen) const;
 };
 
 #endif
+
+
+
